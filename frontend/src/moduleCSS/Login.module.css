@@ -1,1 +1,107 @@
-.Login {color: rebeccapurple; font-size: 64px;}
+.Login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: none;
+    
+}
+
+h1 {
+    margin-bottom: 80px;
+    font-size: 36px;
+    color: #000000;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputGroup {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #000000;
+}
+
+input {
+    width: 95%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+}
+
+.passwordContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.passwordContainer input {
+    flex: 1; 
+    padding-right: 40px; 
+}
+
+.eyeIcon {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #060a0d;
+}
+
+.submitButton {
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+    background-color: #0056b3;
+}
+
+.orText {
+    margin: 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+}
+
+.registerButton {
+    padding: 10px;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.registerButton:hover {
+    background-color: #218838;
+}
