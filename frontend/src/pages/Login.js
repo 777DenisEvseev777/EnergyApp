@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import style from '../moduleCSS/Login.module.css';
 
 const Login = () => {
+
+    const navigate = useNavigate();
+
     const [passwordVisible, setPasswordVisible] = useState(false);
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
+
+    const handleToSignUp = () => {
+        navigate('/register')
+    }
 
     return (
         <div className={style.Login}>
@@ -32,7 +40,7 @@ const Login = () => {
                     </div>
                     <button type="submit" className={style.submitButton}>Авторизуватися</button>
                     <div className={style.orText}>або</div>
-                    <button type="button" className={style.registerButton}>Зареєструватися</button>
+                    <button type="button" className={style.registerButton} onClick={handleToSignUp}>Зареєструватися</button>
                 </form>
             </div>
         </div>

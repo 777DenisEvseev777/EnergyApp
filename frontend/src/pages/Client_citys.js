@@ -1,11 +1,19 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import style from '../moduleCSS/Client_citys.module.css';
 
 const Client_citys= () => {
+
+    const navigate = useNavigate();
+
+    const handleToClientCommunity = () =>{
+        navigate('/client_community')
+    }
+
     return (
         <div className={style.container}>
             <div className={style.topBar}>
-                <button className={style.backButton}>Повернутися</button>
+                <button className={style.backButton} onClick={handleToClientCommunity}>Повернутися</button>
             </div>
 
             <div className={style.content}>

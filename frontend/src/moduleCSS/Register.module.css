@@ -1,5 +1,9 @@
-.Register
+.Register{
+}
+
 .container {
+  background: url('../assets/register.jpg');
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
