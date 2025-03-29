@@ -1,0 +1,91 @@
+.Admin {
+    background: url('../assets/worker.jpg');
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    color: white;
+    padding: 10px 20px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.headerText {
+    font-size: 24px;
+    margin: 0 auto;
+}
+
+.exitButton {
+    background-color: #222;
+    color: #ffffff;
+    border: 1px solid #222;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 35px;
+}
+
+.body {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 60px;
+}
+
+.leftContainer, .rightContainer {
+    width: 45%;
+}
+
+.inputGroup {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.dropdownLabel,
+.dataLabel {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    text-align: left;
+}
+
+.dropdown,
+.textarea {
+    width: 94%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.textarea {
+    height: 50px;
+    resize: none;
+}
+
+.updateButtonContainer {
+    text-align: center;
+    width: 70%;
+}
+
+.updateButton {
+    background-color: #222;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    width: 40%;
+    margin-left: 234px;
+}

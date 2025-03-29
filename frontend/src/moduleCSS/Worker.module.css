@@ -1,4 +1,6 @@
 .Worker {
+    background: url('../assets/worker.jpg');
+    background-size: cover;
     font-family: Arial, sans-serif;
     padding: 20px;
     display: flex;
