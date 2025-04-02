@@ -4,6 +4,19 @@ const User = require('../models/User');
 
 const JWT_SECRET = "SECRET";
 
+const authMiddleware = (req, res, next) => {
+    const token = req.header("Authorization");
+    if (!token) return res.status(401).json({ message: "Немає авторизації" });
+  
+    try {
+      const decoded = jwt.verify(token, JWT_SECRET);
+      req.userId = decoded.userId;
+      next();
+    } catch (error) {
+      res.status(403).json({ message: "Невірний токен" });
+    }
+};
+
 const createUser = async(req, res) => {
     try {
         const { login, phone, password, passwordConfirm, role } = req.body;
@@ -58,4 +71,13 @@ const authenticationUser = async(req, res) =>{
     }
 }
 
-module.exports = {createUser, authenticationUser};
+const profileUser = async(req, res) => {
+    try {
+        const user = await User.findById(req.userId).select("-password");
+        res.status(200).json({user, message: "Get user data"});
+    } catch (error) {
+        res.status(500).json({ message: "Помилка сервера" });
+    }
+}
+
+module.exports = {createUser, authenticationUser, authMiddleware, profileUser};

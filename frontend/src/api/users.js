@@ -26,8 +26,24 @@ export const Authentication = async(login, password) => {
             login: login, 
             password: password
         })
+        sessionStorage.setItem("token", res.data.token);
         return res.data;
     } catch (error){
+        throw error.response ? error.response : { message: error.message };
+    }
+}
+
+export const GetDataUser = async() => {
+    try{
+        const res = await axios.get('/users', {
+            headers:{
+                'Content-Type': 'application/json',
+                Authorization: `${sessionStorage.getItem("token")}`
+            } 
+        });
+
+        return res.data
+    }catch (error){
         throw error.response ? error.response : { message: error.message };
     }
 }

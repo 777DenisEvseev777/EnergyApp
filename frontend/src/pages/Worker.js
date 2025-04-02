@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import style from '../moduleCSS/Worker.module.css';
+import { useUser } from '../contexts/UserContext';
 
 const Worker = () => {
     const [selectedCommunity, setSelectedCommunity] = useState('');
     const [selectedAddress, setSelectedAddress] = useState('');
     const [currentData, setCurrentData] = useState('Поточні дані будуть тут');
     const [updatedData, setUpdatedData] = useState('');
+    const {user} = useUser();
 
     const navigate = useNavigate();
 

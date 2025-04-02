@@ -5,12 +5,14 @@ import Client_community from './pages/Client_community.js';
 import Login from './pages/Login.js';
 import Register from './pages/Register.js';
 import Admin from './pages/Admin.js';
+import { UserProvider } from './contexts/UserContext.js';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
+      <UserProvider>
       <Router>
         <Routes>
                 
@@ -23,7 +25,7 @@ function App() {
 
         </Routes>
       </Router>
-      
+      </UserProvider>
     </div>
   );
 }

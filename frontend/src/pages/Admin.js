@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import style from '../moduleCSS/Admin.module.css';
+import { useUser } from '../contexts/UserContext';
 
 const Admin = () => {
     const [selectedUser, setSelectedUser] = useState('');
@@ -9,6 +10,7 @@ const Admin = () => {
     const [updatedRights, setUpdatedRights] = useState('');
     const [currentData, setCurrentData] = useState('Поточні дані тут');
     const [updatedData, setUpdatedData] = useState('');
+    const {user} = useUser();
 
     const navigate = useNavigate();
 

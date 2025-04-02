@@ -1,22 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import style from '../moduleCSS/Login.module.css';
+import { useUser } from '../contexts/UserContext';
+import { GetDataUser } from '../api/users';
 
 import { Authentication } from '../api/users';
 
 const Login = () => {
 
     const navigate = useNavigate();
+    const {updateUser} = useUser();
     const [login, setLogin] = useState();
     const [password, setPassword] = useState();
+    const [user, setUser] = useState(null)
+
+    useEffect(() => {
+        if (user && user.role === 'user') {
+            console.log("1")
+            navigate('/client_community');
+        } else if (user && user.role === 'worker'){
+            console.log("2")
+            navigate('/worker');
+        }else if (user && user.role === 'admin'){
+            console.log("3")
+            navigate('/admin')
+        }
+    }, [user]);
 
     const handleLogInClick = async() => {
         try{
-            const res = await Authentication(login, password)
-            if (res.token){
-                navigate('/client_community');
-            }
-            console.log(res);
+            const res = await Authentication(login, password);
+            const res1 = await GetDataUser();
+            updateUser();
+            setUser(res1.user);
+            console.log(res)
         }catch (error) {
             console.log("Error:", error.response?.data?.message || error.message || "Невідома помилка");
         }
@@ -35,7 +52,7 @@ const Login = () => {
     return (
         <div className={style.Login}>
             <div className={style.container}>
-                <h1>Закарпаття Енерго</h1>
+                <h1>Закарпаття Енерго {user && user.login}</h1>
                 <div className={style.form}>
                     <div className={style.inputGroup}>
                         <label htmlFor="username">Логін</label>
