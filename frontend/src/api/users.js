@@ -16,7 +16,7 @@ export const SignUp = async(login, phone, password, passwordConfirm) => {
             });
         return res;
     }catch (error){
-        throw error.response ? error.response : { message: error.message };
+        throw error;
     }
 }
 
@@ -29,7 +29,7 @@ export const Authentication = async(login, password) => {
         sessionStorage.setItem("token", res.data.token);
         return res.data;
     } catch (error){
-        throw error.response ? error.response : { message: error.message };
+        throw error;
     }
 }
 
@@ -44,6 +44,6 @@ export const GetDataUser = async() => {
 
         return res.data
     }catch (error){
-        throw error.response ? error.response : { message: error.message };
+        throw error;
     }
 }

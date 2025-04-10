@@ -15,11 +15,13 @@ const Register = () => {
       try{
           const res = await SignUp(login, phone, password, passwordConfirm);
           console.log(res)
+          alert(res.data.message)
           if (res.status === 201){
               navigate('/');
           }
       }catch (error) {
-        console.log("Error:", error.response?.data?.message || error.message || "Невідома помилка");
+        alert(`Error: ${error.data.message}`)
+        console.log("Error:", error);
       }
     }
 

@@ -8,4 +8,10 @@ router.post('/authentication', UserController.authenticationUser);
 
 router.get('/users', UserController.authMiddleware, UserController.profileUser);
 
+router.get('/getusers', UserController.getUsers);
+
+router.get('/getuser', UserController.getUser);
+
+router.patch('/user', UserController.updateUser);
+
 module.exports = router;

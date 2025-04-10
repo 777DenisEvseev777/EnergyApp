@@ -33,9 +33,11 @@ const Login = () => {
             const res1 = await GetDataUser();
             updateUser();
             setUser(res1.user);
+            alert(res.token && "Успішна авторизаці");
             console.log(res)
         }catch (error) {
-            console.log("Error:", error.response?.data?.message || error.message || "Невідома помилка");
+            alert(`Error: ${error.data.message}`)
+            console.log(error);
         }
     }
 
