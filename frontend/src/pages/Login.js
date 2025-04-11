@@ -36,7 +36,7 @@ const Login = () => {
             alert(res.token && "Успішна авторизаці");
             console.log(res)
         }catch (error) {
-            alert(`Error: ${error.data.message}`)
+            alert(`Помилка: ${error.response.data && error.response.data.message}`)
             console.log(error);
         }
     }

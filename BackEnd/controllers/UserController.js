@@ -21,6 +21,10 @@ const createUser = async(req, res) => {
     try {
         const { login, phone, password, passwordConfirm, role } = req.body;
 
+        if (login === '' || phone ==='' || password==='' || passwordConfirm === ''){
+            return res.status(400).json({ message: 'Усі поля повинні бути заповнені' });
+        }
+
         const user = await User.findOne({login});
         
         if (user){
@@ -52,15 +56,18 @@ const createUser = async(req, res) => {
 
         res.status(201).json({message: "Користувач зареєстрований"});
     }
-    catch (error){
-        console.error("Server error:", error);  
-        res.status(500).json({message: 'Помилка сервера'});
+    catch (error){ 
+        res.status(500).json({message: "Усі поля повинні бути заповнені"});
     }
 }
 
 const authenticationUser = async(req, res) =>{
     try{
         const {login, password} = req.body;
+
+        if (login === '' || password === ''){
+            return res.status(400).json({ message: 'Усі поля повинні бути заповнені' });
+        }
 
         const user = await User.findOne({login});
 
@@ -79,7 +86,7 @@ const authenticationUser = async(req, res) =>{
         res.status(200).json({ token, userId: user._id});
     }
     catch{
-        res.status(500).json({message: "Помилка сервера"});
+        res.status(500).json({message: "Усі поля повинні бути заповнені"});
     }
 }
 

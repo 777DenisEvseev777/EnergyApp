@@ -20,7 +20,7 @@ const Register = () => {
               navigate('/');
           }
       }catch (error) {
-        alert(`Error: ${error.data.message}`)
+        alert(`Помилка: ${error.response.data && error.response.data.message}`)
         console.log("Error:", error);
       }
     }
