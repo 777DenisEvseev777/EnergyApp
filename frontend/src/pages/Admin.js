@@ -118,7 +118,7 @@ const Admin = () => {
     }, [address]);
 
     const handleUpadateDate = async() =>{
-        const sum = Number(currentAddress) + Number(updatedData);
+        const sum = Number(updatedData);
         setCurrentAddress(sum);
         try{
             const res = await axios.patch('http://localhost:7777/api/addresses', {

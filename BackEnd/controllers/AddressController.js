@@ -51,9 +51,9 @@ const updateAddress = async(req, res) => {
         const city = await City.findById(city_id);
         const community = await Community.findById(commun_id);
 
-        address.consumption += Number(consumption);
-        city.consumption += (consumption / 1000);
-        community.consumption += (consumption / 1000);
+        address.consumption = Number(consumption);
+        city.consumption = (consumption / 1000);
+        community.consumption = (consumption / 1000);
 
         await address.save();
         await city.save();
