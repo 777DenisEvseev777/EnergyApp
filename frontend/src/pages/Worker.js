@@ -88,7 +88,7 @@ const Worker = () => {
         const sum = Number(updatedData);
 
         if (sum === currentAddress){
-            alert("Дані збігаюця");
+            alert("Дані збігаються");
             return 0;
         }
 

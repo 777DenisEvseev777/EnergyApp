@@ -122,7 +122,7 @@ const Admin = () => {
         const sum = Number(updatedData);
 
         if (sum === currentAddress){
-            alert("Дані збігаюця");
+            alert("Дані збігаються");
             return 0;
         }
 
@@ -148,7 +148,7 @@ const Admin = () => {
     const handleUpdateRights = async() => {
 
         if (currentUser.role === updatedRights){
-            alert("Дані користувача збігаюця");
+            alert("Дані користувача збігаються");
             return 0;
         }
 

@@ -33,7 +33,6 @@ const Login = () => {
             const res1 = await GetDataUser();
             updateUser();
             setUser(res1.user);
-            alert(res.token && "Успішна авторизаці");
             console.log(res)
         }catch (error) {
             alert(`Помилка: ${error.response.data && error.response.data.message}`)
