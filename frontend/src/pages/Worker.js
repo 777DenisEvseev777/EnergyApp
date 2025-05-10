@@ -86,6 +86,12 @@ const Worker = () => {
 
     const handleUpadateDate = async() =>{
         const sum = Number(updatedData);
+
+        if (sum === currentAddress){
+            alert("Дані збігаюця");
+            return 0;
+        }
+
         setCurrentAddress(sum);
         try{
             const res = await axios.patch('http://localhost:7777/api/addresses', {

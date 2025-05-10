@@ -118,8 +118,16 @@ const Admin = () => {
     }, [address]);
 
     const handleUpadateDate = async() =>{
+
         const sum = Number(updatedData);
+
+        if (sum === currentAddress){
+            alert("Дані збігаюця");
+            return 0;
+        }
+
         setCurrentAddress(sum);
+
         try{
             const res = await axios.patch('http://localhost:7777/api/addresses', {
                 consumption: updatedData,
@@ -138,6 +146,12 @@ const Admin = () => {
     const navigate = useNavigate();
 
     const handleUpdateRights = async() => {
+
+        if (currentUser.role === updatedRights){
+            alert("Дані користувача збігаюця");
+            return 0;
+        }
+
         try{
             const res = await axios.patch ('http://localhost:7777/api/user', {
                 userId: currentUser._id,
