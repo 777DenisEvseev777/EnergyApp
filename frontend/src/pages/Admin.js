@@ -148,7 +148,7 @@ const Admin = () => {
     const handleUpdateRights = async() => {
 
         if (currentUser.role === updatedRights){
-            alert("Дані користувача збігаються");
+            alert("Права доступу користувача збігаються");
             return 0;
         }
 

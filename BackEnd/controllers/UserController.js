@@ -125,7 +125,7 @@ const updateUser = async(req, res) => {
         const user = await User.findById(userId);
         user.role = role;
         await user.save()
-        res.status(200).json({ message: "Користувач успішно оновлений"});
+        res.status(200).json({ message: "Права доступу користувача успішно оновлені"});
     }catch (error){
         res.status(500).json({ message: "Помилка сервера" });
     }
