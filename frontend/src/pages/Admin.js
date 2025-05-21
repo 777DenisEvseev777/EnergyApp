@@ -152,6 +152,11 @@ const Admin = () => {
             return 0;
         }
 
+        if (currentUser.role === "admin"){
+            alert("Неможливо змінити права доступу Адміна");
+            return 0;
+        }
+
         try{
             const res = await axios.patch ('http://localhost:7777/api/user', {
                 userId: currentUser._id,
